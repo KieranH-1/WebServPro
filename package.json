@@ -1,8 +1,14 @@
 {
-  "name": "webservpro",
-  "description": "description",
-  "authors": "author",
+  "name": "web-server",
   "version": "1.0.0",
-  "main": "pathToMain",
-  "dependencies": {}
+  "private": true,
+  "description": "",
+  "scripts": {
+    "start": "node server/index.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2",
+    "dayjs": "^1.11.13"
+  }
 }

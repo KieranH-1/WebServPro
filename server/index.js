@@ -7,7 +7,7 @@ const PORT = 8000;
 // Configure our HTTP server to respond with Hello World to all requests.
 const server = http.createServer((req, res) => {
   res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('Hello World\n');
+  res.end('Hello New Paltz!!!\n');
 });
 
 // Listen on port 8000, IP defaults to
