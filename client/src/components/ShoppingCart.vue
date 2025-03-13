@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { refCart } from '@/router/models/cart'
+import { refCart } from '@/models/cart'
 
 const cart = refCart()
 </script>
@@ -8,9 +8,7 @@ const cart = refCart()
   <div class="cart">
     <h2 class="title is-4">Shopping Cart</h2>
     <ul>
-      <li v-for="item in cart" :key="item.id">
-        {{ item.name }} - {{ item.price }}
-      </li>
+      <li v-for="item in cart" :key="item.id">{{ item.name }} - {{ item.price }}</li>
     </ul>
   </div>
 </template>
