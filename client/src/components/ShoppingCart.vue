@@ -8,7 +8,25 @@ const cart = refCart()
   <div class="cart">
     <h2 class="title is-4">Shopping Cart</h2>
     <ul>
-      <li v-for="item in cart" :key="item.id">{{ item.name }} - {{ item.price }}</li>
+      <li v-for="item in cart" :key="item.product.id">
+        <img :src="item.product.thumbnail" :alt="item.product.title" />
+        <span>
+          {{ item.product.title }}
+        </span>
+        <span>
+          <select v-model="item.quantity" name="" id="">
+            <option v-for="i in 10" :key="i" :value="i">
+              {{ i }}
+            </option>
+          </select>
+        </span>
+
+        <span> x {{ item.product.price }} </span>
+        <span>
+          =
+          {{ item.quantity * item.product.price }}
+        </span>
+      </li>
     </ul>
   </div>
 </template>
@@ -16,5 +34,11 @@ const cart = refCart()
 <style scoped>
 .cart {
   margin: 1rem;
+}
+
+li {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 </style>

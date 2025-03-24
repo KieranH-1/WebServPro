@@ -2,6 +2,14 @@
 import { ref } from 'vue'
 
 const isActive = ref(false)
+
+const props = defineProps<{
+  isShoppingCartOpen?: boolean
+}>()
+
+const event = defineEmits<{
+  update: [boolean]
+}>()
 </script>
 
 <template>
@@ -61,6 +69,15 @@ const isActive = ref(false)
         </div>
 
         <div class="navbar-end">
+          <div class="navbar-item">
+            <button
+              class="button"
+              :class="{ 'is-active': props.model }"
+              @click="event('modelUpdate', true)"
+            >
+              <i class="fas fa-shopping-cart"> </i>
+            </button>
+          </div>
           <div class="navbar-item">
             <div class="buttons">
               <a class="button is-primary">

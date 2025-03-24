@@ -1,7 +1,13 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const props = defineProps<{
+  isShoppingCartOpen?: boolean
+}>()
+</script>
 
 <template>
-  <div class="sliding-drawer">
+  <div class="sliding-drawer" :class="{ open: props.isOpen }">
     <slot></slot>
   </div>
 </template>
