@@ -1,6 +1,8 @@
+/* B"H
+ */
 import { ref } from 'vue'
 import { addNotification } from './notifications'
-import type { Product } from '@/data/products'
+import type { Product } from './products'
 
 export interface CartItem {
   product: Product
@@ -18,11 +20,11 @@ export function addToCart(product: Product, quantity: number = 1) {
   if (item) {
     item.quantity += quantity
     addNotification({
-      message: `Item already in cart, quantity updated to ${item.quantity}`,
+      message: 'Item already in cart. Quantity updated.',
       type: 'info',
     })
   } else {
-    cart.value.push()
+    cart.value.push({ product, quantity })
     addNotification({
       message: `Added ${quantity} ${product.title} to cart`,
       type: 'success',

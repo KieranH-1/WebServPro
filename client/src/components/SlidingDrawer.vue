@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-
 const props = defineProps<{
-  isShoppingCartOpen?: boolean
+  isOpen?: boolean
 }>()
 </script>
 
@@ -15,14 +13,14 @@ const props = defineProps<{
 <style scoped>
 .sliding-drawer {
   position: fixed;
-  top: 0;
+  top: 50px;
+  bottom: 0;
   right: 0;
-  width: 300px;
-  height: 100%;
-  background-color: #fff;
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-  transform: translateX(100%);
-  transition: transform 0.3s ease-in-out;
+  width: 30rem;
+  background-color: white;
+  box-shadow: -1px 0 7px rgba(0, 0, 0, 0.5);
+  transform: translateX(95%);
+  transition: transform 0.3s ease-out;
 }
 
 .sliding-drawer.open,

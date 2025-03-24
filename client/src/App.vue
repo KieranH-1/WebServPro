@@ -11,10 +11,10 @@ const isShoppingCartOpen = ref(false)
 
 <template>
   <header>
-    <NavBar v-model="isShoppingCartOpen" />
+    <NavBar v-model:is-shopping-cart-open="isShoppingCartOpen" />
   </header>
 
-  <div class="container body-content">
+  <div class="container body-container">
     <NotificationList />
     <RouterView />
   </div>
@@ -24,13 +24,15 @@ const isShoppingCartOpen = ref(false)
   </SlidingDrawer>
 </template>
 
-<style scoped>
+<style>
 body {
-  background-color: #f5f5f5;
+  background-color: aliceblue;
 }
-.container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 20px;
+
+.body-container {
+  background-color: white;
+  height: 100vh;
+  padding: 1rem;
+  padding-top: 4em;
 }
 </style>

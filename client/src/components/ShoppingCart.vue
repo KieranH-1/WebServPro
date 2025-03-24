@@ -6,7 +6,7 @@ const cart = refCart()
 
 <template>
   <div class="cart">
-    <h2 class="title is-4">Shopping Cart</h2>
+    <h2 class="title is-4">Shopping Cart ({{ cart.length }})</h2>
     <ul>
       <li v-for="item in cart" :key="item.product.id">
         <img :src="item.product.thumbnail" :alt="item.product.title" />
@@ -14,20 +14,19 @@ const cart = refCart()
           {{ item.product.title }}
         </span>
         <span>
-          <select v-model="item.quantity" name="" id="">
-            <option v-for="i in 10" :key="i" :value="i">
-              {{ i }}
+          <select v-model="item.quantity">
+            <option v-for="n in 10" :key="n" :value="n">
+              {{ n }}
             </option>
           </select>
         </span>
-
-        <span> x {{ item.product.price }} </span>
-        <span>
-          =
-          {{ item.quantity * item.product.price }}
-        </span>
+        <span> x ${{ item.product.price }} </span>
+        <span> = ${{ item.product.price * item.quantity }} </span>
       </li>
     </ul>
+    <h2 class="title is-4">
+      Total: ${{ cart.reduce((acc, item) => acc + item.product.price * item.quantity, 0) }}
+    </h2>
   </div>
 </template>
 
@@ -38,7 +37,12 @@ const cart = refCart()
 
 li {
   display: flex;
-  justify-content: center;
-  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+
+  img {
+    width: 50px;
+    height: 50px;
+  }
 }
 </style>

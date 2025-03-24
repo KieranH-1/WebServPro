@@ -23,7 +23,7 @@ function doAddToCart(product: Product) {
           <h2>{{ p.title }}</h2>
           <p>{{ p.description }}</p>
           <span class="price">${{ p.price }}</span>
-          <button class="button is-success" @click="addToCart(p)">Add to cart</button>
+          <button class="button is-success" @click="doAddToCart(p)">Add to cart</button>
         </div>
       </div>
     </div>
