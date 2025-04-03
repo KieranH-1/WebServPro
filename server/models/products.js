@@ -2,6 +2,7 @@
  */
 
 const data = require("../data/products.json");
+const { CustomError, statusCodes } = require("./errors");
 
 async function getAll() {
   return data;
@@ -10,7 +11,7 @@ async function getAll() {
 async function get(id) {
   const item = data.items.find((item) => item.id == id);
   if (!item) {
-    throw new Error("Item not found", { status: 404 });
+    throw new CustomError("Item not found", statusCodes.NOT_FOUND);
   }
   return item;
 }
