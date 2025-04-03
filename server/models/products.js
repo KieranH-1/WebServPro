@@ -1,32 +1,49 @@
+/*  B"H
+ */
+
 const data = require("../data/products.json");
 
-function getAll() {
+async function getAll() {
   return data;
 }
 
-function get(id) {
-  return data.find((product) => product.id === id);
+async function get(id) {
+  const item = data.items.find((item) => item.id == id);
+  if (!item) {
+    throw new Error("Item not found", { status: 404 });
+  }
+  return item;
 }
 
-function create(product) {
+async function create(item) {
   const newItem = {
-    id: data.length + 1,
-    ...product,
+    id: data.items.length + 1,
+    ...item,
   };
-  data.push(newItem);
+  data.items.push(newItem);
   return newItem;
 }
 
-function update(id, product) {
-  const index = data.findIndex((product) => product.id == id);
-  const updatedItem = { ...data[index], ...product };
-  data[index] = updatedItem;
+async function update(id, item) {
+  const index = data.items.findIndex((item) => item.id == id);
+  if (index === -1) {
+    return null;
+  }
+  const updatedItem = {
+    ...data.items[index],
+    ...item,
+  };
+  data.items[index] = updatedItem;
   return updatedItem;
 }
 
-function remove(id) {
-  const index = data.findIndex((product) => product.id == id);
-  const deletedItem = data.splice(index, 1);
+async function remove(id) {
+  const index = data.items.findIndex((item) => item.id == id);
+  if (index === -1) {
+    return null;
+  }
+  const deletedItem = data.items[index];
+  data.items.splice(index, 1);
   return deletedItem;
 }
 
