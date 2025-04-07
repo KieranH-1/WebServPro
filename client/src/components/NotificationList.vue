@@ -1,12 +1,8 @@
 <script setup lang="ts">
-import { refNotifications } from '@/models/notifications'
+import { refNotifications, removeNotification } from '@/models/notifications'
 import { ref } from 'vue'
 
 const notifications = refNotifications()
-
-function removeNotification(index: number) {
-  notifications.value.splice(index, 1)
-}
 </script>
 
 <template>
@@ -18,7 +14,7 @@ function removeNotification(index: number) {
       :class="`is-${message.type}`"
     >
       <button class="delete" @click="removeNotification(index)"></button>
-      {{ message.text }}
+      {{ message.message }}
     </div>
   </div>
 </template>

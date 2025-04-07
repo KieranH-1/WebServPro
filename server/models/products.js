@@ -4,6 +4,8 @@
 const data = require("../data/products.json");
 const { CustomError, statusCodes } = require("./errors");
 
+const isAdmin = true;
+
 async function getAll() {
   return data;
 }
@@ -17,6 +19,12 @@ async function get(id) {
 }
 
 async function create(item) {
+  if (!isAdmin) {
+    throw CustomError(
+      "Sorry, you are not authorized to create a new item",
+      statusCodes.UNAUTHORIZED
+    );
+  }
   const newItem = {
     id: data.items.length + 1,
     ...item,

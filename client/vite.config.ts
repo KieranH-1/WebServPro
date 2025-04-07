@@ -9,10 +9,9 @@ import VueRouter from 'unplugin-vue-router/vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
-    VueRouter({
-      /*
-    options*/
-    }),
+    VueRouter(/*
+      options
+    */),
     vue(),
     vueJsx(),
     vueDevTools(),
@@ -21,5 +20,8 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
+  },
+  build: {
+    outDir: '../dist',
   },
 })

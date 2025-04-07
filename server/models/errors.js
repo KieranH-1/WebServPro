@@ -1,14 +1,10 @@
+/*  B"H
+ */
+
 class CustomError extends Error {
   constructor(message, status) {
     super(message);
     this.status = status;
-
-    // Capture the stack trace
-    if (Error.captureStackTrace) {
-      Error.captureStackTrace(this, this.constructor);
-    } else {
-      this.stack = new Error().stack;
-    }
   }
 }
 

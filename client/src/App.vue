@@ -15,7 +15,6 @@ const isShoppingCartOpen = ref(false)
   </header>
 
   <div class="container body-container">
-    <NotificationList />
     <RouterView />
   </div>
 
