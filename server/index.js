@@ -40,8 +40,9 @@ app.use((err, req, res, next) => {
 
 app.listen(PORT, () => {
   console.log(`
-    Welcome to the best class at New Paltz - ${process.env.BEST_CLASS}
-    Server running at http://localhost:${PORT}/`);
+      Welcome to the best class at New Paltz - ${process.env.BEST_CLASS}
+      Server running at http://localhost:${PORT}/
+    `);
 });
 
 /*
